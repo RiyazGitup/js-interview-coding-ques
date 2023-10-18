@@ -1,0 +1,130 @@
+// Write a program to print the reverse of the given string.
+// Input
+// codecode
+// Output
+// edocedoc
+function reverseString(input) {
+    if (typeof input === 'string' && input.length >= 1 && input.length <= 100) {
+        var reversedString = input.split('').reverse().join('');
+        console.log(reversedString);
+    } else {
+        console.log("Invalid input. Please provide a valid string with length between 1 and 100.");
+    }
+}
+
+var inputString = "codecode";
+reverseString(inputString);
+
+
+
+// Given a number, check whether it is a prime number or not.
+// Input 1
+// 3
+// Output 1
+// Yes
+// Input 2
+// 4
+// Output 2
+// No
+
+function isPrime(number) {
+    if (number <= 1) {
+        return "No";
+    } else {
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return "No";
+            }
+        }
+        return "Yes";
+    }
+}
+
+var input1 = 3;
+console.log("Output 1:", isPrime(input1));
+
+var input2 = 4;
+console.log("Output 2:", isPrime(input2));
+
+
+
+
+// Given an array of numbers, arrange them in a way that it forms the largest value.
+// Input
+// [54, 546, 548, 60]
+// Output
+// 6054854654
+
+// Note
+// The arrangement 6054854654 gives the largest value.
+// Constraints
+// 1<=N<=1000
+// 1<=Number<=1000000 using javascript
+
+function largestNumber(arr) {
+
+    const customComparator = (a, b) => (a + b > b + a) ? -1 : 1;
+
+    const sortedArray = arr.map(String).sort(customComparator);
+
+    const result = sortedArray.join('');
+
+    return result;
+}
+
+var inputArray = [54, 546, 548, 60];
+console.log(largestNumber(inputArray));
+
+
+// Given a number N, print reverse of number N.
+// Input
+// 988
+// Output
+// 889
+// Note
+// Do not print leading zeros in output.
+// For example N = 100
+// Reverse of N should be 1 not 001.
+// Constraints
+// 1<=N<=10000
+
+
+function reverseNumber(n) {
+    const reversedNumber = parseInt(n.toString().split('').reverse().join(''));
+
+    console.log(reversedNumber);
+}
+
+var inputNumber = 988;
+reverseNumber(inputNumber);
+
+
+// Given an array of numbers, find the maximum and minimum element in the array.
+// Input
+// [54, 546, 548, 60]
+// Output
+// 548 54 using javascript
+
+function findMaxAndMin(arr) {
+    if (arr.length === 0) {
+        console.log("Array is empty.");
+        return;
+    }
+
+    let max = arr[0];
+    let min = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    console.log(max, min);
+}
+
+var inputArray = [54, 546, 548, 60];
+findMaxAndMin(inputArray);
